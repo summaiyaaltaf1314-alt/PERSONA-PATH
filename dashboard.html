@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PersonaPath Dashboard</title>
+    <link rel="stylesheet" href="dash.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">PersonaPath</div>
+            <button class="close-btn" id="close-sidebar"><i class="fas fa-times"></i></button>
+            <nav class="menu">
+                <div class="menu-item active">
+                    <i class="fas fa-clipboard-list"></i>
+                    <a href="dashboard.html" class="menu-link">
+                        <span>Test Results</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-book"></i>
+                    <a href="resource.html" class="menu-link">
+                        <span>Resources</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-file-alt"></i>
+                    <a href="resume.html" class="menu-link">
+                        <span>Resume Generator</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-road"></i>
+                    <a href="career.html" class="menu-link">
+                        <span>Career Roadmap</span>
+                    </a>
+                </div>
+            </nav>
+            <div class="menu-section-title">GENERAL</div>
+            <nav class="menu">
+                <div class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <a href="settings.html" class="menu-link">
+                        <span>Settings</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-question-circle"></i>
+                    <a href="help.html" class="menu-link">
+                        <span>Help</span>
+                    </a>
+                </div>
+                <div class="menu-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content" id="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <div class="hamburger-menu-mobile" id="hamburger-menu-mobile">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="hamburger-menu-desktop" id="hamburger-menu-desktop">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <h1 class="greeting">Hello Totok Michael</h1>
+                </div>
+                <div class="header-actions">
+                    <div class="user-profile-wrapper">
+                        <div class="user-profile">
+                            <div class="user-avatar">TM</div>
+                            <div class="user-info">
+                                <div class="user-name">Totok Michael</div>
+                                <div class="user-status">Online</div>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                            <div class="dropdown-content">
+                              
+                                <a href="#">Settings</a>
+                                <a href="#">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="btn btn-secondary" id="download-report">Download Report</button>
+                        <button class="btn btn-primary" id="go-back-home">Go Back Home</button>
+                    </div>
+                </div>
+            </header>
+
+            <section class="disc-results">
+                <div class="disc-card red-card" data-color="red" data-value="85" data-trait="Dominance" data-traits="Assertive, Competitive, Results-oriented">
+                    <h3>Dominance</h3>
+                    <div class="circle-chart">
+                        <svg width="100" height="100">
+                            <circle cx="50" cy="50" r="45" stroke="#e0e0e0" stroke-width="10" fill="none"></circle>
+                            <circle cx="50" cy="50" r="45" stroke="#ef5350" stroke-width="10" stroke-dasharray="282.743" stroke-dashoffset="42.41145" fill="none"></circle>
+                        </svg>
+                        <span class="circle-value">85%</span>
+                    </div>
+                    <p class="result-label">DISC Assessment Result</p>
+                </div>
+                <div class="disc-card yellow-card" data-color="yellow" data-value="70" data-trait="Influence" data-traits="Sociable, Persuasive, Enthusiastic">
+                    <h3>Influence</h3>
+                    <div class="circle-chart">
+                        <svg width="100" height="100">
+                            <circle cx="50" cy="50" r="45" stroke="#e0e0e0" stroke-width="10" fill="none"></circle>
+                            <circle cx="50" cy="50" r="45" stroke="#ffca28" stroke-width="10" stroke-dasharray="282.743" stroke-dashoffset="84.823" fill="none"></circle>
+                        </svg>
+                        <span class="circle-value">70%</span>
+                    </div>
+                    <p class="result-label">DISC Assessment Result</p>
+                </div>
+                <div class="disc-card green-card" data-color="green" data-value="90" data-trait="Steadiness" data-traits="Calm, Patient, Reliable">
+                    <h3>Steadiness</h3>
+                    <div class="circle-chart">
+                        <svg width="100" height="100">
+                            <circle cx="50" cy="50" r="45" stroke="#e0e0e0" stroke-width="10" fill="none"></circle>
+                            <circle cx="50" cy="50" r="45" stroke="#66bb6a" stroke-width="10" stroke-dasharray="282.743" stroke-dashoffset="28.2743" fill="none"></circle>
+                        </svg>
+                        <span class="circle-value">90%</span>
+                    </div>
+                    <p class="result-label">DISC Assessment Result</p>
+                </div>
+                <div class="disc-card blue-card" data-color="blue" data-value="65" data-trait="Conscientiousness" data-traits="Analytical, Detail-oriented, Precise">
+                    <h3>Conscientiousness</h3>
+                    <div class="circle-chart">
+                        <svg width="100" height="100">
+                            <circle cx="50" cy="50" r="45" stroke="#e0e0e0" stroke-width="10" fill="none"></circle>
+                            <circle cx="50" cy="50" r="45" stroke="#42a5f5" stroke-width="10" stroke-dasharray="282.743" stroke-dashoffset="98.96005" fill="none"></circle>
+                        </svg>
+                        <span class="circle-value">65%</span>
+                    </div>
+                    <p class="result-label">DISC Assessment Result</p>
+                </div>
+            </section>
+
+            <section class="analytics-recommendations">
+                <div class="test-analytics card">
+                    <h2>Test Analytics</h2>
+                    <div class="chart-wrapper">
+                        <div class="y-axis">
+                            <span>0</span>
+                            <span>25</span>
+                            <span>50</span>
+                            <span>75</span>
+                            <span>100</span>
+                        </div>
+                        <div class="bar-chart">
+                            <div class="bar-group" data-trait="Dom">
+                                <div class="bar red" data-value="0"></div>
+                                <div class="bar-tooltip"></div>
+                                <span class="label">Dom</span>
+                            </div>
+                            <div class="bar-group" data-trait="Inf">
+                                <div class="bar yellow" data-value="0"></div>
+                                <div class="bar-tooltip"></div>
+                                <span class="label">Inf</span>
+                            </div>
+                            <div class="bar-group" data-trait="Ste">
+                                <div class="bar green" data-value="0"></div>
+                                <div class="bar-tooltip"></div>
+                                <span class="label">Ste</span>
+                            </div>
+                            <div class="bar-group" data-trait="Con">
+                                <div class="bar blue" data-value="0"></div>
+                                <div class="bar-tooltip"></div>
+                                <span class="label">Con</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-rated-career card">
+                    <h2>Your Top Rated Career</h2>
+                    <ul>
+                        <li class="career-item">
+                            <i class="fas fa-folder"></i> Software Engineer
+                        </li>
+                        <li class="career-item">
+                            <i class="fas fa-folder"></i> Data Scientist
+                        </li>
+                        <li class="career-item">
+                            <i class="fas fa-folder"></i> Product Manager
+                        </li>
+                        <li class="career-item">
+                            <i class="fas fa-folder"></i> UX/UI Designer
+                        </li>
+                        <li class="career-item">
+                            <i class="fas fa-folder"></i> Cloud Solutions Architect
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="career-recommendations">
+                <h2>Career Recommendations</h2>
+                <div class="recommendation-grid">
+                    <div class="rec-card">
+                        <h3>Software Engineer</h3>
+                        <p>Design and develop software applications using various programming languages and frameworks.</p>
+                        <div class="rec-details">
+                            <div>Education: <span>Computer Science Degree</span></div>
+                            <div>Salary: <span class="salary">$85,000</span></div>
+                        </div>
+                    </div>
+                    <div class="rec-card">
+                        <h3>Data Analyst</h3>
+                        <p>Analyze complex data sets to help organizations make informed business decisions.</p>
+                        <div class="rec-details">
+                            <div>Education: <span>Statistics or Math Degree</span></div>
+                            <div>Salary: <span class="salary">$65,000</span></div>
+                        </div>
+                    </div>
+                    <div class="rec-card">
+                        <h3>Project Manager</h3>
+                        <p>Lead cross-functional teams to deliver projects on time and within budget.</p>
+                        <div class="rec-details">
+                            <div>Education: <span>Business Administration</span></div>
+                            <div>Salary: <span class="salary">$75,000</span></div>
+                        </div>
+                    </div>
+                    <div class="rec-card">
+                        <h3>UX Designer</h3>
+                        <p>Create user-centered designs for digital products and improve user experiences.</p>
+                        <div class="rec-details">
+                            <div>Education: <span>Design or HCI Degree</span></div>
+                            <div>Salary: <span class="salary">$70,000</span></div>
+                        </div>
+                    </div>
+                    <div class="rec-card">
+                        <h3>Marketing Specialist</h3>
+                        <p>Develop and execute marketing strategies to promote products and services.</p>
+                        <div class="rec-details">
+                            <div>Education: <span>Marketing Degree</span></div>
+                            <div>Salary: <span class="salary">$55,000</span></div>
+                        </div>
+                    </div>
+                    <div class="rec-card">
+                        <h3>Financial Analyst</h3>
+                        <p>Evaluate financial data and trends to guide investment and business decisions.</p>
+                        <div class="rec-details">
+                            <div>Education: <span>Finance or Economics</span></div>
+                            <div>Salary: <span class="salary">$68,000</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/11/09/10/20251109100450-U4KENJYU.js" defer></script>
+    <script  type="module" src="dd.js"></script>
+    <script type="module" src="firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - PersonaPath</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style>
+        html, body {
+            overflow-y: auto;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        *, *::before, *::after {
+            box-sizing: inherit;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f7f7;
+            color: #374151;
+            margin: 0;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+        }
+        body::before,
+        body::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+            filter: blur(120px);
+            opacity: 0.7;
+        }
+        body::before {
+            width: 350px;
+            height: 350px;
+            background-color: #e0d0e6;
+            top: 8%;
+            left: 3%;
+        }
+        body::after {
+            width: 450px;
+            height: 450px;
+            background-color: #f3c2ff;
+            bottom: 3%;
+            right: 3%;
+        }
+        .signup-page {
+            display: flex;
+            width: 90%;
+            max-width: 900px;
+            height: 600px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        .left-panel-image {
+            flex: 1;
+            background: linear-gradient(135deg, #a77bff, #e0a3f9);
+            border-radius: 20px 0 0 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .left-panel-image h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .left-panel-image p {
+            font-size: 1.1em;
+            line-height: 1.4;
+            max-width: 80%;
+            z-index: 1;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.1);
+        }
+        .floating-icon {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.5);
+            animation: float 15s ease-in-out infinite;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        .floating-icon:nth-child(1) { width: 60px; height: 60px; top: 10%; left: 15%; animation-delay: 0s; transform: rotate(15deg); }
+        .floating-icon:nth-child(2) { width: 80px; height: 80px; top: 30%; right: 10%; animation-delay: 2s; font-size: 1.8em; transform: rotate(-25deg);}
+        .floating-icon:nth-child(3) { width: 50px; height: 50px; bottom: 15%; left: 5%; animation-delay: 4s; transform: rotate(30deg);}
+        .floating-icon:nth-child(4) { width: 70px; height: 70px; top: 50%; left: 40%; animation-delay: 6s; font-size: 1.6em; transform: rotate(-10deg);}
+        .floating-icon:nth-child(5) { width: 40px; height: 40px; bottom: 5%; right: 25%; animation-delay: 8s; transform: rotate(45deg);}
+        .floating-icon:nth-child(6) { width: 90px; height: 90px; top: 5%; right: 5%; animation-delay: 10s; font-size: 2em; transform: rotate(20deg);}
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+            50% { transform: translate(-10px, 20px) scale(1.1); opacity: 0.9; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+        }
+        .right-panel-form {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .right-panel-form h1 {
+            color: #8c52ff;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+            font-weight: 600;
+        }
+        .right-panel-form p.subtitle {
+            font-size: 0.9em;
+            color: #616161;
+            margin-bottom: 20px;
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 320px;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        .form-group {
+            width: 100%;
+            max-width: 320px;
+            text-align: left;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            font-weight: 500;
+            color: #555;
+        }
+        .input-wrapper {
+            position: relative;
+        }
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 0.9em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input:focus {
+            border-color: #8c52ff;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(140, 82, 255, 0.2);
+        }
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #999;
+            font-size: 0.9em;
+        }
+        .signup-btn, .google-btn {
+            width: 100%;
+            max-width: 320px;
+            padding: 14px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.95em;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .signup-btn {
+            background-color: #8c52ff;
+        }
+        .signup-btn:hover {
+            background-color: #7a46e1;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(140, 82, 255, 0.2);
+        }
+        .google-btn {
+            background-color: #ffffff;
+            color: #374151;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .google-btn:hover {
+            background-color: #f5f5f5;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .google-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+        .login-link {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #616161;
+            width: 100%;
+            max-width: 320px;
+        }
+        .login-link a {
+            color: #8c52ff;
+            font-weight: 500;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .signup-page {
+                flex-direction: column;
+                height: auto;
+                max-width: 450px;
+                width: 90%;
+                border-radius: 20px;
+            }
+            .left-panel-image, .right-panel-form {
+                width: 100%;
+                flex: none;
+                padding: 30px;
+                text-align: center;
+            }
+            .left-panel-image {
+                border-radius: 20px 20px 0 0;
+                order: -1;
+                min-height: 200px;
+                border-bottom: 1px solid rgba(255,255,255,0.2);
+            }
+            .right-panel-form {
+                border-radius: 0 0 20px 20px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
+            .left-panel-image h2 {
+                font-size: 2em;
+            }
+            .left-panel-image p {
+                font-size: 1em;
+                max-width: 90%;
+            }
+            .floating-icon {
+                display: none;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .form-row .form-group {
+                margin-bottom: 15px;
+            }
+            .form-row .form-group input {
+                max-width: 100%;
+            }
+            .right-panel-form h1 {
+                margin-top: 0;
+            }
+        }
+        @media (max-width: 550px) {
+            .signup-page {
+                width: 95%;
+                max-width: 320px;
+                margin: 20px auto;
+            }
+            .right-panel-form {
+                padding: 20px;
+            }
+            .left-panel-image {
+                padding: 20px;
+                min-height: 180px;
+            }
+            .right-panel-form h1 {
+                font-size: 1.8em;
+                margin-bottom: 8px;
+            }
+            .right-panel-form p.subtitle {
+                font-size: 0.8em;
+                margin-bottom: 15px;
+            }
+            .form-group {
+                margin-bottom: 10px;
+                max-width: 100%;
+            }
+            .form-group label {
+                font-size: 0.85em;
+            }
+            input {
+                padding: 8px 10px;
+                font-size: 0.85em;
+            }
+            .password-toggle {
+                font-size: 0.8em;
+                right: 10px;
+            }
+            .signup-btn, .google-btn {
+                padding: 10px;
+                font-size: 0.85em;
+                margin: 6px 0;
+                max-width: 100%;
+            }
+            .login-link {
+                margin-top: 15px;
+                font-size: 0.8em;
+                max-width: 100%;
+            }
+            .left-panel-image h2 {
+                font-size: 1.5em;
+                margin-bottom: 10px;
+            }
+            .left-panel-image p {
+                font-size: 0.8em;
+                max-width: 95%;
+                line-height: 1.3;
+            }
+            .floating-icon { display: block; }
+            .floating-icon:nth-child(1) { width: 35px; height: 35px; top: 5%; left: 5%; font-size: 1.2em; }
+            .floating-icon:nth-child(2) { width: 45px; height: 45px; top: 20%; right: 5%; font-size: 1.5em;}
+            .floating-icon:nth-child(3) { width: 28px; height: 28px; bottom: 5%; left: 15%; font-size: 1em; }
+            .floating-icon:nth-child(4) { width: 40px; height: 40px; top: 40%; left: 30%; font-size: 1.3em;}
+            .floating-icon:nth-child(5) { width: 22px; height: 22px; bottom: 10%; right: 5%; font-size: 0.8em;}
+            .floating-icon:nth-child(6) { width: 50px; height: 50px; top: 5%; right: 15%; font-size: 1.7em;}
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-page">
+        <div class="left-panel-image">
+            <div class="floating-icon"><i class="fas fa-dumbbell"></i></div>
+            <div class="floating-icon"><i class="fas fa-star"></i></div>
+            <div class="floating-icon"><i class="fas fa-bolt"></i></div>
+            <div class="floating-icon"><i class="fas fa-heart"></i></div>
+            <div class="floating-icon"><i class="fas fa-fire-alt"></i></div>
+            <div class="floating-icon"><i class="fas fa-medal"></i></div>
+            <h2>Join PersonaPath</h2>
+            <p>Sign up now to start your personalized fitness journey. Achieve your goals with tailored plans and track your progress!</p>
+        </div>
+        <div class="right-panel-form">
+            <h1>Sign Up</h1>
+            <p class="subtitle">Create your account to get started!</p>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" placeholder="first name" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" placeholder="last name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" placeholder="password" required>
+                        <span class="password-toggle" onclick="togglePasswordVisibility('password')">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="confirmPassword" placeholder="Confirm pass" required>
+                        <span class="password-toggle" onclick="togglePasswordVisibility('confirmPassword')">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <button class="signup-btn">Sign Up</button>
+            <button class="google-btn">
+                <svg viewBox="0 0 48 48" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#4285F4" d="M24 9.5c3.94 0 7.49 1.41 10.28 3.73l7.71-7.71C34.37 2.21 28.77 0 24 0 14.63 0 6.69 5.14 2.28 12.22l8.19 6.35C12.42 13.91 17.63 9.5 24 9.5z"/>
+                    <path fill="#34A853" d="M46.99 24.1c0-1.44-.13-2.84-.38-4.2H24v8.05h12.52c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.03z"/>
+                    <path fill="#FBBC05" d="M10.53 28.93c-.46-1.38-7.2-4.26-1.33-7.93-2.51 4.77-2.51 11.29 0 16.06l-8.19 6.35C2.27 35.37 0 30.65 0 24.93c0-1.74.3-3.43.86-5.01L10.53 28.93z"/>
+                    <path fill="#EA4335" d="M24 48c6.48 0 11.93-2.16 15.89-5.85l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-8.19-6.35c-4.42 8.76-1.17 19.65 7.31 25.01C17.97 47.31 20.88 48 24 48z"/>
+                </svg>
+                Continue with Google
+            </button>
+            <div class="login-link">Already have an account? <a href="login.html">Log In</a></div>
+        </div>
+    </div>
+    <script>
+        // Inline toggle function (optional, can be removed if using log.js)
+    function togglePasswordVisibility(fieldId) {
+        const password = document.getElementById(fieldId);
+        const toggle = password.nextElementSibling.querySelector('i');
+        if (password.type === 'password') {
+            password.type = 'text';
+            toggle.classList.remove('fa-eye');
+            toggle.classList.add('fa-eye-slash');
+        } else {
+            password.type = 'password';
+            toggle.classList.remove('fa-eye-slash');
+            toggle.classList.add('fa-eye');
+        }
+    }
+    function savePendingAssessment() {
+    const pending = localStorage.getItem('pendingAssessment');
+    if (pending && auth.currentUser) {
+        const data = JSON.parse(pending);
+        const userRef = doc(db, 'users', auth.currentUser.uid);
+        
+        setDoc(userRef, { assessmentData: data }, { merge: true })
+            .then(() => {
+                console.log("Pending assessment saved!");
+                localStorage.removeItem('pendingAssessment'); // clear
+            })
+            .catch(err => console.error("Failed to save pending:", err));
+    }
+}createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // ... your code ...
+        savePendingAssessment();  // ← ADD THIS
+        window.location.href = 'dashboard.html';
+    });
+
+// In login.js – after signInWithEmailAndPassword
+signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // ... your code ...
+        savePendingAssessment();  // ← ADD THIS
+        window.location.href = 'dashboard.html';
+    });
+    </script>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>
+
+
+

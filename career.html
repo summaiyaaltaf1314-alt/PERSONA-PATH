@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PersonaPath Dashboard</title>
+    <link rel="stylesheet" href="dash.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">PersonaPath</div>
+            <button class="close-btn" id="close-sidebar"><i class="fas fa-times"></i></button>
+            <nav class="menu">
+                <div class="menu-item">
+                    <i class="fas fa-clipboard-list"></i>
+                    <a href="dashboard.html" class="menu-link">
+                        <span>Test Results</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-book"></i>
+                    <a href="resource.html" class="menu-link">
+                        <span>Resources</span>
+                    </a>
+                </div>
+                <div class="menu-item active">
+                    <i class="fas fa-file-alt"></i>
+                    <a href="resume.html" class="menu-link">
+                        <span>Resume Generator</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-road"></i>
+                    <a href="career.html" class="menu-link">
+                        <span>Career Roadmap</span>
+                    </a>
+                </div>
+            </nav>
+            <div class="menu-section-title">GENERAL</div>
+            <nav class="menu">
+                <div class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <a href="settings.html" class="menu-link">
+                        <span>Settings</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-question-circle"></i>
+                    <a href="help.html" class="menu-link">
+                        <span>Help</span>
+                    </a>
+                </div>
+                <div class="menu-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content" id="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <div class="hamburger-menu-mobile" id="hamburger-menu-mobile">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="hamburger-menu-desktop" id="hamburger-menu-desktop">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <h1 class="greetres">Career Roadmap</h1>
+                    <p class="subtitle">Explore curated resources to help you grow in your field.</p>
+                </div>
+            </header>
+            <!-- Main Content Area for Career Cards -->
+            <!-- Career Selection Section -->
+            <main id="career-selection-section" class="career-selection-main active">
+                <section class="career-category">
+                    <div class="category-header">
+                        <i class="fas fa-laptop-code category-icon"></i>
+                        <h2>Software & Technology Careers</h2>
+                    </div>
+                    <div class="career-cards-grid">
+                        <div class="career-card" data-career="web-development">
+                            <div class="card-icon"><i class="fas fa-code"></i></div>
+                            <h3>Web Development</h3>
+                            <p>Frontend, Backend, Full Stack</p>
+                        </div>
+                        <div class="career-card" data-career="data-science">
+                            <div class="card-icon"><i class="fas fa-database"></i></div>
+                            <h3>Data Science</h3>
+                            <p>Python, ML, Visualization</p>
+                        </div>
+                        <div class="career-card" data-career="artificial-intelligence">
+                            <div class="card-icon"><i class="fas fa-brain"></i></div>
+                            <h3>Artificial Intelligence (AI)</h3>
+                            <p>Deep Learning, NLP</p>
+                        </div>
+                        <div class="career-card" data-career="cybersecurity">
+                            <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                            <h3>Cybersecurity</h3>
+                            <p>Ethical Hacking, Risk Mgmt.</p>
+                        </div>
+                        <div class="career-card" data-career="mobile-app-development">
+                            <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+                            <h3>Mobile App Development</h3>
+                            <p>Android, iOS, Flutter</p>
+                        </div>
+                        <div class="career-card" data-career="software-qa">
+                            <div class="card-icon"><i class="fas fa-clipboard-check"></i></div>
+                            <h3>Software Quality Assurance (QA)</h3>
+                            <p>Manual & Automation</p>
+                        </div>
+                        <div class="career-card" data-career="ui-ux-design">
+                            <div class="card-icon"><i class="fas fa-vector-square"></i></div>
+                            <h3>UI/UX Design</h3>
+                            <p>Wireframing, Prototyping</p>
+                        </div>
+                        <div class="career-card" data-career="cloud-computing">
+                            <div class="card-icon"><i class="fas fa-cloud"></i></div>
+                            <h3>Cloud Computing</h3>
+                            <p>AWS, Azure, Google Cloud</p>
+                        </div>
+                        <div class="career-card" data-career="devops-engineering">
+                            <div class="card-icon"><i class="fas fa-cogs"></i></div>
+                            <h3>DevOps Engineering</h3>
+                            <p>CI/CD, Docker, Kubernetes</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="career-category">
+                    <div class="category-header">
+                        <i class="fas fa-user-md category-icon"></i>
+                        <h2>Medical & Healthcare Careers</h2>
+                    </div>
+                    <div class="career-cards-grid">
+                        <div class="career-card" data-career="nursing">
+                            <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
+                            <h3>Nursing</h3>
+                            <p>Patient Care, Medical Asst.</p>
+                        </div>
+                        <div class="career-card" data-career="pharmacy">
+                            <div class="card-icon"><i class="fas fa-prescription-bottle-alt"></i></div>
+                            <h3>Pharmacy</h3>
+                            <p>Medicines, Dosage</p>
+                        </div>
+                        <div class="career-card" data-career="medical-lab-technology">
+                            <div class="card-icon"><i class="fas fa-microscope"></i></div>
+                            <h3>Medical Laboratory Technology</h3>
+                            <p>Testing & Diagnostics</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="career-category">
+                    <div class="category-header">
+                        <i class="fas fa-briefcase category-icon"></i>
+                        <h2>Business & Management Careers</h2>
+                    </div>
+                    <div class="career-cards-grid">
+                        <div class="career-card" data-career="business-analyst">
+                            <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                            <h3>Business Analyst</h3>
+                            <p>Reporting, Power BI</p>
+                        </div>
+                        <div class="career-card" data-career="digital-marketing">
+                            <div class="card-icon"><i class="fas fa-bullhorn"></i></div>
+                            <h3>Digital Marketing</h3>
+                            <p>SEO, Social Media</p>
+                        </div>
+                        <div class="career-card" data-career="project-management">
+                            <div class="card-icon"><i class="fas fa-project-diagram"></i></div>
+                            <h3>Project Management</h3>
+                            <p>Agile, Scrum, PMP</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Roadmap Section (Initially Hidden) -->
+            <main id="roadmap-section" class="roadmap-main">
+                <button class="back-button" id="back-to-main-button"><i class="fas fa-arrow-left"></i> Back to Main Page</button>
+
+                <div class="roadmap-timeline">
+                    <!-- Month 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content-wrapper">
+                            <div class="timeline-content">
+                                <h3>Month 1: HTML & CSS Foundations</h3>
+                                <p>Build the structural and stylistic backbone of web pages.</p>
+                                <ul>
+                                    <li>Learn semantic HTML5 tags.</li>
+                                    <li>Master CSS selectors, Flexbox, and Grid.</li>
+                                    <li>Build a personal portfolio website.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-month">Month 1</div>
+                    </div>
+
+                    <!-- Month 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content-wrapper">
+                            <div class="timeline-content">
+                                <h3>Month 2: JavaScript Fundamentals</h3>
+                                <p>Bring interactivity and logic to your websites.</p>
+                                <ul>
+                                    <li>Understand variables, data types, and functions.</li>
+                                    <li>Learn DOM manipulation and event handling.</li>
+                                    <li>Complete a simple JavaScript project like a to-do list app.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-month">Month 2</div>
+                    </div>
+
+                    <!-- Month 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content-wrapper">
+                            <div class="timeline-content">
+                                <h3>Month 3: Intro to Frontend Frameworks</h3>
+                                <p>Learn modern tools for building complex user interfaces.</p>
+                                <ul>
+                                    <li>Choose a framework (React, Vue, or Angular).</li>
+                                    <li>Learn about components, state management, and props.</li>
+                                    <li>Build a single-page application (SPA).</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-month">Month 3</div>
+                    </div>
+
+                    <!-- Month 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content-wrapper">
+                            <div class="timeline-content">
+                                <h3>Month 4: Backend Development with Node.js</h3>
+                                <p>Build the server-side logic and APIs for your applications.</p>
+                                <ul>
+                                    <li>Learn Node.js and Express framework.</li>
+                                    <li>Understand RESTful APIs and how to build them.</li>
+                                    <li>Connect your application to a database (MongoDB).</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-month">Month 4</div>
+                    </div>
+
+                    <!-- Month 5 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content-wrapper">
+                            <div class="timeline-content">
+                                <h3>Month 5: Databases & Full Stack Integration</h3>
+                                <p>Master data storage and connect your frontend and backend.</p>
+                                <ul>
+                                    <li>Deep dive into database concepts (SQL/NoSQL).</li>
+                                    <li>Implement user authentication and authorization.</li>
+                                    <li>Deploy a full-stack MERN/MEVN application.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-month">Month 5</div>
+                    </div>
+
+                    <!-- Month 6 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content-wrapper">
+                            <div class="timeline-content">
+                                <h3>Month 6: Deployment & Advanced Topics</h3>
+                                <p>Go live with your projects and learn advanced skills.</p>
+                                <ul>
+                                    <li>Learn about deployment platforms (Vercel, Netlify, Heroku).</li>
+                                    <li>Understand version control with Git and GitHub.</li>
+                                    <li>Explore topics like testing, CI/CD, and web performance.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-month">Month 6</div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/11/09/10/20251109100450-U4KENJYU.js" defer></script>
+    <script src="career.js"></script>
+    <script type="module"   src="dd.js"></script>
+</body>
+</html>

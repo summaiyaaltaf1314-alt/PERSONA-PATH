@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PersonaPath Dashboard</title>
+    <link rel="stylesheet" href="dash.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">PersonaPath</div>
+            <button class="close-btn" id="close-sidebar"><i class="fas fa-times"></i></button>
+            <nav class="menu">
+                <div class="menu-item">
+                    <i class="fas fa-clipboard-list"></i>
+                    <a href="dashboard.html" class="menu-link">
+                        <span>Test Results</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-book"></i>
+                    <a href="resource.html" class="menu-link">
+                        <span>Resources</span>
+                    </a>
+                </div>
+                <div class="menu-item active">
+                    <i class="fas fa-file-alt"></i>
+                    <a href="resume.html" class="menu-link">
+                        <span>Resume Generator</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-road"></i>
+                    <a href="career.html" class="menu-link">
+                        <span>Career Roadmap</span>
+                    </a>
+                </div>
+            </nav>
+            <div class="menu-section-title">GENERAL</div>
+            <nav class="menu">
+                <div class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <a href="settings.html" class="menu-link">
+                        <span>Settings</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-question-circle"></i>
+                    <a href="help.html" class="menu-link">
+                        <span>Help</span>
+                    </a>
+                </div>
+                <div class="menu-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content" id="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <div class="hamburger-menu-mobile" id="hamburger-menu-mobile">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="hamburger-menu-desktop" id="hamburger-menu-desktop">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <h1 class="greetres"> Career Resources</h1>
+            <p class="subtitle">Explore curated resources to help you grow in your field.</p>
+                </div>
+                <!-- <div class="header-actions">
+                    <div class="user-profile-wrapper">
+                        <div class="user-profile">
+                            <div class="user-avatar">TM</div>
+                            <div class="user-info">
+                                <div class="user-name">Totok Michael</div>
+                                <div class="user-status">Online</div>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                            <div class="dropdown-content">
+                                <a href="#">Profile</a>
+                                <a href="#">Settings</a>
+                                <a href="#">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </header>
+            <div class="bg-white p-6 rounded-2xl shadow-lg h-full overflow-y-auto" id="resources-content">
+                <div class="my-8">
+                    <h2 class="text-xl font-bold text-gray-700 mb-6">Select The Domain/Area Of Interest</h2>
+                    <div class="flex flex-wrap gap-2" id="category-buttons">
+                        <!-- Categories will be added here by JS -->
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="resources-grid">
+                    <!-- Cards will be added here by JS -->
+                </div>
+
+                <div id="resource-detail" style="display: none;">
+                    <div class="mb-6">
+                        <button id="back-to-resources" class="flex items-center text-indigo-600 font-semibold hover:text-indigo-800 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-5 h-5 mr-2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                            </svg>
+                            Back to Resources
+                        </button>
+                    </div>
+                    <div class="bg-white p-4 sm:p-6 rounded-lg">
+                        <img id="detail-image" class="w-full h-64 sm:h-80 md:h-96 object-cover rounded-xl shadow-lg mb-6">
+                        <h1 id="detail-title" class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4"></h1>
+                        <p id="detail-description" class="text-gray-600 leading-relaxed mb-6"></p>
+                        <a id="view-resource" class="inline-flex items-center justify-center bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-colors shadow-md">
+                            Visit Resource
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-5 h-5 ml-2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/11/09/10/20251109100450-U4KENJYU.js" defer></script>
+    <script type="module"   src="dd.js"></script>
+    <script type="module" src="resource.js"></script>
+    
+    
+</body>
+</html>

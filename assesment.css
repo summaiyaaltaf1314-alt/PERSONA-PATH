@@ -1,0 +1,240 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff; /* Main background is now white */
+    color: #374151;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.assessment-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.assessment-main-content {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; /* Needed for the background shapes */
+    overflow: hidden; /* Contains the background shapes */
+}
+
+/* ** THIS IS THE KEY CHANGE: The new gradient background shapes ** */
+.assessment-main-content::before,
+.assessment-main-content::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0; /* Places them behind the content */
+    filter: blur(100px); /* This creates the soft, blurry effect */
+    opacity: 0.6;
+}
+
+.assessment-main-content::before {
+    width: 400px;
+    height: 400px;
+    background-color: #cdbcd3; /* Light Purple */
+    top: 10%;
+    left: 5%;
+}
+
+.assessment-main-content::after {
+    width: 500px;
+    height: 500px;
+    background-color: #eba5fc; /* Light Blue */
+    bottom: 5%;
+    right: 5%;
+}
+
+
+/* All direct children of the main content need a z-index to appear on top */
+#welcome-screen, #assessment-questions, #results {
+    position: relative;
+    z-index: 1;
+}
+
+.assessment-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+.assessment-header h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #8c52ff;
+}
+.assessment-stats { display: flex; justify-content: center; gap: 40px; margin-bottom: 40px; }
+.stat-item { text-align: center; }
+.stat-item .rating { font-size: 1.2em; color: #f59e0b; }
+.stat-item .main-stat { font-size: 1.2em; font-weight: 600; }
+.stat-item span { font-size: 0.8em; color: #6b7280; letter-spacing: 1px; text-transform: uppercase; }
+.age-input-group { display: flex; justify-content: center; gap: 10px; max-width: 500px; margin: 0 auto; }
+#ageInput { padding: 18px; border: 1px solid #ddd; border-radius: 12px; font-size: 1.1em; width: 60%; }
+.start-button { padding: 18px; background-color: #8c52ff; color: #fff; border: none; border-radius: 12px; font-size: 1.1em; font-weight: 600; cursor: pointer; transition: all 0.3s ease; flex-grow: 1; white-space: nowrap; }
+.start-button:hover { background-color: #7b47e5; }
+.assessment-slider-wrapper {
+    position: relative;
+    max-width: 500px;
+    margin: 40px auto 0 auto;
+    overflow: hidden; /* Ensure the wrapper also respects the curve */
+}
+
+.assessment-slider {
+    border-radius: 20px;
+    overflow: hidden;
+    height: 300px; /* Fixed height to ensure consistent curve visibility */
+}
+
+.assessment-slider .swiper-slide {
+    height: 100%; /* Ensure slides take full height of the slider */
+    border-radius: 20px; /* Apply curve to individual slides */
+    overflow: hidden; /* Contain the image within the slide's curve */
+}
+
+.assessment-slider .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px; /* Apply curve directly to the image */
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background-color: #ffffff;
+}
+
+.slider-arrow.prev {
+    left: -5px;
+}
+
+.slider-arrow.next {
+    right: -5px;
+}
+.assessment-sidebar { flex: 0 0 350px; padding: 60px 40px; background-color: rgba(254, 243, 255, 0.6); backdrop-filter: blur(15px); border-left: 1px solid rgba(140, 82, 255, 0.1); display: flex; align-items: center; }
+.timeline { list-style: none; padding: 0; position: relative; width: 100%; }
+.timeline::before { content: ''; position: absolute; top: 12px; left: 11px; height: calc(100% - 24px); width: 2px; background-color: #ddd6fe; }
+.timeline-item { position: relative; padding-left: 40px; margin-bottom: 40px; }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-marker { position: absolute; left: 0; top: 0; width: 24px; height: 24px; border-radius: 50%; border: 2px solid #ddd6fe; background-color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; color: transparent; transition: all 0.3s ease; }
+.timeline-item.active .timeline-marker { border-color: #8c52ff; }
+.timeline-item.done .timeline-marker { background-color: #8c52ff; border-color: #8c52ff; color: #fff; }
+.timeline-item.done .timeline-marker::before { content: '✔'; }
+.timeline-content { transition: all 0.3s ease; }
+.timeline-content h4 { font-size: 1.1em; font-weight: 600; color: #374151; }
+.timeline-content span, .timeline-content p { font-size: 0.9em; color: #6b7280; line-height: 1.5; margin-top: 5px; }
+#assessment-questions { text-align: center; }
+#questionContainer { transition: opacity 0.3s ease-out; }
+.question-text { font-size: 1.5em; font-weight: 500; margin-bottom: 40px; color: #374151; }
+.answer-options { display: flex; flex-direction: column; gap: 15px; }
+.answer-btn { display: flex; align-items: center; width: 100%; padding: 15px 20px; background-color: #fff; color: #374151; border: 1px solid #ddd; border-radius: 12px; font-size: 1em; font-family: 'Poppins', sans-serif; cursor: pointer; text-align: left; transition: all 0.2s ease; }
+.answer-btn:hover { background-color: #f5f3ff; border-color: #8c52ff; }
+.answer-num { display: inline-block; border: 1px solid #ccc; width: 24px; height: 24px; line-height: 24px; text-align: center; border-radius: 4px; margin-right: 15px; }
+.answer-btn:hover .answer-num { border-color: #8c52ff; }
+.career-rating-card { max-width: 400px; margin: 0 auto; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+/* Specific background images for each career */
+.career-it { background-image: url('image/IT.jpg'); }
+.career-software { background-image: url('image/software.jpg'); }
+.career-healthcare { background-image: url('image/healthcare.jpg'); }
+.career-nurse { background-image: url('image/nurse.jpg'); }
+.career-business { background-image: url('image/business.jpg'); }
+.career-hr { background-image: url('image/humanresource.jpg'); }
+.career-accounting { background-image: url('image/accounting.jpg'); }
+.career-cpa { background-image: url('image/cpa.jpg'); }
+.career-design { background-image: url('image/design.jpg'); }
+.career-ui-design { background-image: url('image/ux.jpg'); }
+.career-marketing { background-image: url('image/marketing.jpg'); }
+.career-digital-marketing { background-image: url('image/digitalmarketing.jpg'); }
+.career-ai { background-image: url('image/AI.jpg'); }
+.career-web-dev { background-image: url('image/web.jpg'); }
+.career-cybersecurity { background-image: url('image/cybersceurity.jpeg'); }
+.career-data-science { background-image: url('image/datascience.jpg'); }
+.career-devops { background-image: url('image/devops.jpg'); }
+.career-sqa { background-image: url('image/SQa.jpg'); }
+.career-physical-therapy { background-image: url('image/Physicaltherapy.jpg'); }
+.career-health-admin { background-image: url('image/healthadmin.jpg'); }
+.career-pharmacist { background-image: url('image/pharmacist.jpg'); }
+.career-lab-scientist { background-image: url('image/labscientist.jpg'); }
+.career-operations { background-image: url('image/operation.jpg'); }
+.career-consultant { background-image: url('image/consultant.jpg'); }
+.career-sales { background-image: url('image/sales.jpg'); }
+.career-supply-chain { background-image: url('image/supplychain.jpg'); }
+.career-financial-analyst { background-image: url('image/financialanalyst.jpg'); }
+.career-investment-banking { background-image: url('image/investmentbanking.jpg'); }
+.career-financial-advisor { background-image: url('image/financialadvisor.jpg'); }
+.career-forensic-accounting { background-image: url('image/forensicaccounting.jpg'); }
+.career-description-box { background-color: rgba(223, 187, 240, 0.7); backdrop-filter: blur(5px); padding: 35px; height: 258px; overflow-y: auto;   ;
+    /* border-radius: 20px;  Curved design on all four sides  */
+    color: #374151; /* Text color (adjust for readability) */
+    overflow-y: auto; /* Keep scroll if content overflows */
+    z-index: 1; /* Ensure it stays above the image */ }
+.career-description-box h3 { font-size: 1.8em; margin-bottom: 10px; }
+.career-description-box p { font-size: 1em; line-height: 1.7; }
+.rating-box { background-color: #fff; padding: 20px 25px; text-align: center; }
+.rating-box p { font-weight: 500; margin-bottom: 15px; }
+.star-rating { display: flex; justify-content: center; gap: 10px; font-size: 2em; color: #ddd6fe; cursor: pointer; }
+.star-rating .star:hover, .star-rating .star.hover { color: #8c52ff; }
+.rating-labels { display: flex; justify-content: space-between; font-size: 0.8em; color: #6b7280; padding: 0 5px; margin-top: 5px; }
+#results { text-align: center; }
+#results h2 { font-size: 2.2em; color: #8c52ff; }
+#results p { margin: 20px 0 30px 0; font-size: 1.1em; }
+.cta-button { padding: 12px 25px; background-color: #8c52ff; color: white; border: none; border-radius: 30px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+.cta-button:hover { background-color: #7b47e5; transform: scale(1.05); }
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .assessment-container { flex-direction: column; }
+    .assessment-main-content { order: 2; padding: 40px 25px; }
+    .assessment-sidebar { order: 1; flex-basis: auto; width: auto; border-left: none; padding: 40px 25px; }
+    .timeline { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .timeline::before { height: 100%; width: 2px; }
+    .timeline-item { padding-left: 40px; padding-top: 0; text-align: left; margin-bottom: 0; }
+    .timeline-marker { left: 0; transform: none; }
+}
+@media (max-width: 767px) {
+    .assessment-header h1 { font-size: 2em; }
+    .assessment-stats { flex-direction: column; gap: 20px; align-items: center; }
+    .age-input-group { flex-direction: column; }
+}
+
+/* General styling for career-rating-card */
+/* .career-rating-card {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+} */
+
+
+
+/* Ensure text is readable over the image */
+/* .career-description-box {
+    background-color: rgba(255, 255, 255, 0.7); 
+    padding: 25px;
+    border-radius: 15px;
+}  */
+
+/* Optional: Adjust rating-box to stand out */
+
+/* .rating-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 25px;
+    text-align: center;
+}  */

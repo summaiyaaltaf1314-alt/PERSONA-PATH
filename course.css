@@ -1,0 +1,104 @@
+/* =========================================== */
+/*      FINAL ENHANCED COURSE RECOMMENDATIONS PAGE     */
+/* =========================================== */
+.logo-link { text-decoration: none; }
+
+/* Wavy Hero Section */
+.rec-hero-section-v3 {
+    position: relative;
+    background: linear-gradient(to right, #8c52ff, #6a2c91);
+    color: white;
+    text-align: center;
+    padding: 100px 40px;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.rec-hero-content-v3 { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+.rec-hero-content-v3 h1 { font-size: 4.5em; font-weight: 800; line-height: 1.1; margin-bottom: 20px; text-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.rec-hero-content-v3 p { font-size: 1.2em; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+/* Wave SVG Background */
+.wave-container { position: absolute; bottom: 0; left: 0; width: 100%; height: 100px; overflow: hidden; }
+.wave { background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; position: absolute; bottom: -20px; width: 6400px; height: 198px; animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite; transform: translate3d(0, 0, 0); }
+.wave.wave1 { animation-delay: -2s; opacity: 1; }
+.wave.wave2 { animation-duration: 8s; animation-delay: -4s; opacity: 0.5; }
+@keyframes wave { 0% { margin-left: 0; } 100% { margin-left: -1600px; } }
+
+/* Filter Bar Section */
+.filter-bar-section {
+    padding: 50px 40px 0 40px;
+    background-color: #fff;
+    position: relative;
+    z-index: 5;
+    margin-top: -80px; /* Pulls the section up over the wave */
+}
+.filter-bar {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 25px 40px;
+    background-color: #F3F6FD;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px -10px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+.filter-bar-content { text-align: center; position: relative; z-index: 2; }
+.filter-bar-content h2 { font-size: 2em; font-weight: 600; color: #111827; }
+.breadcrumbs { font-size: 0.9em; color: #6b7280; }
+.breadcrumbs a { color: #6b7280; text-decoration: none; transition: color 0.3s ease; }
+.breadcrumbs a:hover { color: #8c52ff; }
+.breadcrumbs span { color: #111827; font-weight: 500; }
+
+/* Decorations for Filter Bar */
+.deco-dots { position: absolute; top: 20px; left: 20px; width: 50px; height: 80px; background-image: radial-gradient(#dadaf8 1.5px, transparent 1.5px); background-size: 10px 10px; opacity: 0.7;}
+.deco-planet { position: absolute; top: 15px; left: 90px; width: 40px; height: 40px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2M0YjVmZCI+PHBhdGggZD0iTTEyIDJDNi40OCA MiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHM4LTMuNTUgOC04YzEuMDQgMCAyLjAzLjIgMi45Mi41N0MxMy42MSA0LjcgMTIuNzQgNCAxMiA0Yy0yLjk3IDAtNS40NiAyLjA5LTUuOTIgNC45NkMxMC41NCAxMy45NSAxOCAxMi4yNCAxOCAxMmMwLTEuMDQtLjItMi4wMy0uNTctMi45MmMuMzIuMzkxLjQ4LjU1IDEuNDguNTUgMS42NiAwIDMtMS4zNCAzLTNzLTEuMzQtMy0zLTN6Ii8+PC9zdmc+'); background-size: contain; background-repeat: no-repeat; opacity: 0.6; }
+.deco-notebook { position: absolute; bottom: 15px; right: 150px; width: 35px; height: 35px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2M0YjVmZCI+PHBhdGggZD0iTTE4IDJDNC41IDIgMiA0LjUgMiAxOHM0LjUgMTYgMTYgMTZzMTYtNC41IDE2LTE2UzMxLjUgMiAxOCAyem0wIDI4Yy02LjYyIDAtMTItNS4zOC0xMi0xMlM2LjM4IDYgMTIgNnMxMiA1LjM4IDEyIDEyek0xNi41IDExSDhjLTEuNjYgMC0zIDEuMzQtMyAzczEuMzQgMyAzIDNoOC41YzIuNDggMCA0LjUtMi4wMiA0LjUtNC41cy0yLjAyLTQuNS00LjUtNC41SDhhNS41IDUuNSAwIDAgMCAwIDExaDguNWMxLjM4IDAgMi41LTEuMTIgMi41LTIuNVMxNy44OCAxMSAxNi41IDExeiIvPjwvc3ZnPg=='); background-size: contain; background-repeat: no-repeat; opacity: 0.6; transform: rotate(-15deg); }
+.deco-triangle { position: absolute; bottom: 20px; right: 50px; width: 45px; height: 45px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2M0YjVmZCI+PHBhdGggZD0iTTEgMjFoMjJMMTIgMnpNMTIgNGw3LjU1IDEzSDEybC03LjUtMTN6Ii8+PC9zdmc+'); background-size: contain; background-repeat: no-repeat; opacity: 0.5; }
+.deco-circle { position: absolute; top: 15px; right: 50px; width: 20px; height: 20px; border: 3px solid #c4b5fd; border-radius: 50%; }
+
+/* Course Grid Section */
+.course-grid-section { padding: 50px 40px 80px 40px; background-color: #fff; }
+.filter-buttons { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
+.filter-btn { padding: 10px 25px; border: 1px solid #ddd; border-radius: 30px; background-color: #fff; color: #555; font-size: 1em; font-weight: 500; cursor: pointer; transition: all 0.3s ease; }
+.filter-btn:hover { background-color: #f0e9ff; border-color: #8c52ff; color: #8c52ff; }
+.filter-btn.active { background-color: #8c52ff; border-color: #8c52ff; color: white; }
+
+.course-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1280px; margin: 0 auto; }
+.course-card { background-color: #fff; border-radius: 15px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05); text-decoration: none; color: inherit; transition: all 0.3s ease-out; border: 1px solid #f0f0f0; position: relative; overflow: hidden; }
+.course-card:hover { transform: translateY(-8px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); }
+.course-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+.course-card h3 { font-size: 1.3em; font-weight: 600; color: #111827; margin: 15px 20px 8px 20px; }
+.course-card p { font-size: 0.95em; color: #4b5563; line-height: 1.6; margin: 0 20px 25px 20px; }
+.card-personality-tag { position: absolute; top: 15px; right: 15px; background-color: rgba(255, 255, 255, 0.6); backdrop-filter: blur(8px); color: #333; padding: 4px 12px; border-radius: 20px; font-size: 0.75em; font-weight: 500; border: 1px solid rgba(0, 0, 0, 0.05); }
+.active-link { color: #8c52ff !important; }
+
+/* New CTA Section */
+.cta-section { padding: 0 40px 80px 40px; background-color: #fff; }
+.cta-container { max-width: 1280px; margin: 0 auto; padding: 40px 60px; background-color: #fff; border-radius: 25px; display: flex; justify-content: space-between; align-items: center; position: relative; overflow: hidden; box-shadow: 0 20px 50px -15px rgba(0,0,0,0.1); }
+.cta-container::before, .cta-container::after { content: ''; position: absolute; border-radius: 50%; background-color: #8c52ff; opacity: 0.08; z-index: 1; }
+.cta-container::before { width: 250px; height: 250px; top: -100px; right: 15%; }
+.cta-container::after { width: 180px; height: 180px; bottom: -80px; left: 10%; }
+
+.cta-text { position: relative; z-index: 2; }
+.cta-text h2 { font-size: 2.5em; font-weight: 700; color: #8c52ff; line-height: 1.2; }
+.cta-button-wrapper { position: relative; z-index: 2; }
+.cta-button-fancy { display: inline-block; padding: 18px 40px; background-color: #8c52ff; color: white; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1em; box-shadow: 0 10px 30px -10px #8c52ff; transition: all 0.3s ease; position: relative; overflow: hidden; }
+.cta-button-fancy:hover { transform: translateY(-3px); box-shadow: 0 12px 35px -8px #8c52ff; }
+.cta-button-fancy::after { content: ''; position: absolute; top: 50%; right: 20px; width: 15px; height: 15px; background: radial-gradient(circle, rgba(253, 224, 71, 0.4) 0%, rgba(253, 224, 71, 0) 70%); transform: translateY(-50%); animation: pulse 3s infinite; }
+@keyframes pulse { 0% { opacity: 0.5; transform: translateY(-50%) scale(0.8); } 50% { opacity: 1; transform: translateY(-50%) scale(1.1); } 100% { opacity: 0.5; transform: translateY(-50%) scale(0.8); } }
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .rec-hero-section-v3 { min-height: 50vh; padding: 60px 25px; }
+    .rec-hero-content-v3 h1 { font-size: 2.8em; }
+    .filter-bar-section { padding: 30px 25px 0 25px; margin-top: -60px; }
+    .filter-bar { padding: 20px; }
+    .filter-bar-content h2 { font-size: 1.5em; }
+    .deco-dots, .deco-planet, .deco-notebook, .deco-triangle, .deco-circle { display: none; }
+    .course-grid-section, .cta-section { padding-left: 25px; padding-right: 25px; }
+    .cta-container { flex-direction: column; text-align: center; gap: 30px; padding: 40px 30px; }
+    .cta-text h2 { font-size: 2em; }
+}

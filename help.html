@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PersonaPath Dashboard</title>
+    <link rel="stylesheet" href="dash.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+    
+</style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">PersonaPath</div>
+            <button class="close-btn" id="close-sidebar"><i class="fas fa-times"></i></button>
+            <nav class="menu">
+                <div class="menu-item">
+                    <i class="fas fa-clipboard-list"></i>
+                    <a href="dashboard.html" class="menu-link">
+                        <span>Test Results</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-book"></i>
+                    <a href="resource.html" class="menu-link">
+                        <span>Resources</span>
+                    </a>
+                </div>
+                <div class="menu-item active">
+                    <i class="fas fa-file-alt"></i>
+                    <a href="resume.html" class="menu-link">
+                        <span>Resume Generator</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-road"></i>
+                    <a href="career.html" class="menu-link">
+                        <span>Career Roadmap</span>
+                    </a>
+                </div>
+            </nav>
+            <div class="menu-section-title">GENERAL</div>
+            <nav class="menu">
+                <div class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <a href="settings.html" class="menu-link">
+                        <span>Settings</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-question-circle"></i>
+                    <a href="help.html" class="menu-link">
+                        <span>Help</span>
+                    </a>
+                </div>
+                <div class="menu-item logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content" id="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <div class="hamburger-menu-mobile" id="hamburger-menu-mobile"><i class="fas fa-bars"></i></div>
+                    <div class="hamburger-menu-desktop" id="hamburger-menu-desktop"><i class="fas fa-bars"></i></div>
+                    <h1 class="greetres">Help & Support Center</h1>
+                    <p class="subtitle">Need assistance? Find answers to common questions or contact us directly for support.</p>
+                </div>
+            </header>
+
+            <div class="help-container">
+                <!-- Quick Tutorials -->
+                <section>
+                    <h2 class="section-title"><i class="fas fa-puzzle-piece" style="color: #10b981;"></i> Quick Tutorials</h2>
+                    <div class="tutorials-grid">
+                        <div class="tutorial-card">
+                            <div class="tutorial-header">
+                                <div class="tutorial-number">1</div>
+                                <h3 class="tutorial-title">DISC Assessment</h3>
+                            </div>
+                            <ul class="tutorial-steps">
+                                <li>Go to the Dashboard and click Start Assessment.</li>
+                                <li>Answer all questions honestly to discover your personality type.</li>
+                                <li>Your results will automatically save to your profile.</li>
+                            </ul>
+                        </div>
+                        <div class="tutorial-card">
+                            <div class="tutorial-header">
+                                <div class="tutorial-number">2</div>
+                                <h3 class="tutorial-title">Career Recommendations</h3>
+                            </div>
+                            <ul class="tutorial-steps">
+                                <li>Based on your assessment, PersonaPath suggests top career paths.</li>
+                                <li>Visit Test Results to Career Recommendations to view your top-rated careers.</li>
+                                <li>Click any career card for more insights and guidance.</li>
+                            </ul>
+                        </div>
+                        <div class="tutorial-card">
+                            <div class="tutorial-header">
+                                <div class="tutorial-number">3</div>
+                                <h3 class="tutorial-title">Resume Generator</h3>
+                            </div>
+                            <ul class="tutorial-steps">
+                                <li>Navigate to Resume Generator from the sidebar.</li>
+                                <li>Fill in each section (Basic Info to Education to Experience to Projects to Skills).</li>
+                                <li>Click Download Resume to save your personalized professional CV.</li>
+                            </ul>
+                        </div>
+                        <div class="tutorial-card">
+                            <div class="tutorial-header">
+                                <div class="tutorial-number">4</div>
+                                <h3 class="tutorial-title">Career Roadmap</h3>
+                            </div>
+                            <ul class="tutorial-steps">
+                                <li>Access the Career Roadmap page to view step-by-step paths for your selected career.</li>
+                                <li>Each roadmap includes skills, tools, and learning suggestions to grow in your field.</li>
+                            </ul>
+                        </div>
+                        <div class="tutorial-card">
+                            <div class="tutorial-header">
+                                <div class="tutorial-number">5</div>
+                                <h3 class="tutorial-title">Account Settings</h3>
+                            </div>
+                            <ul class="tutorial-steps">
+                                <li>Open Settings from the sidebar.</li>
+                                <li>Update your profile name, email, or profile picture.</li>
+                                <li>Your changes are saved automatically.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQs -->
+                <section>
+                    <h2 class="section-title" style="margin-top: 2.5rem;">
+                        <i class="fas fa-question-circle" style="color: #3b82f6;"></i> Frequently Asked Questions (FAQs)
+                    </h2>
+                    <div class="faq-container">
+                        <div class="accordion-item">
+                            <button class="accordion-btn">
+                                <span class="accordion-title">How can I start the assessment?</span>
+                                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-answer">
+                                    Click “Start Assessment” on your dashboard. Answer all questions and your results will save automatically.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-btn">
+                                <span class="accordion-title">Can I retake the DISC test?</span>
+                                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-answer">
+                                    Yes. Go to Test Results, and click “Retake Assessment”.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-btn">
+                                <span class="accordion-title">My resume is not downloading. What should I do?</span>
+                                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-answer">
+                                    Make sure you’ve filled all sections completely, then click “Download Resume” again. Try refreshing the page.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-btn">
+                                <span class="accordion-title">How do I view my top-rated careers?</span>
+                                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-answer">
+                                    Go to Test Results to Career Recommendations. Your highest-rated career will appear first.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-btn">
+                                <span class="accordion-title">Can I change my email or profile photo?</span>
+                                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-answer">
+                                    Yes. Visit Settings in the sidebar and update your information.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-btn">
+                                <span class="accordion-title">How do I contact PersonaPath for support?</span>
+                                <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-answer">
+                                    You can email us directly at support@personapath.com. Our team will respond within 24–48 hours.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact & Status -->
+                <div class="support-grid">
+                    <section>
+                        <h2 class="support-title"><i class="fas fa-envelope" style="color: #6366f1;"></i> Contact Support</h2>
+                        <div class="support-card">
+                            <p>If you didn’t find your answer above, please email us:</p>
+                            <a href="mailto:support@personapath.com" class="support-email">
+                                <i class="fas fa-envelope"></i> support@personapath.com
+                            </a>
+                            <p class="mt-2">We’re here to help with:</p>
+                            <ul class="support-list">
+                                <li>Login or registration issues</li>
+                                <li>Resume or result problems</li>
+                                <li>General feedback or suggestions</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section>
+                        <h2 class="support-title"><i class="fas fa-server" style="color: #8b5cf6;"></i> System Status</h2>
+                        <div class="support-card">
+                            <div class="status-check">
+                                <i class="fas fa-check-circle"></i>
+                                <p class="status-text">All systems are running normally.</p>
+                            </div>
+                            <div class="status-meta">
+                                <p><i class="fas fa-sync-alt"></i> Last Updated: October 30, 2025</p>
+                                <p><i class="fas fa-lock"></i> All data is securely stored in Firebase Firestore.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <footer class="help-footer">
+                    Thank you for using PersonaPath — Your personalized journey to self-discovery and career success!
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Accordion Functionality
+        document.querySelectorAll('.accordion-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.accordion-icon');
+                const isOpen = content.style.display === 'block';
+
+                // Close all others
+                document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
+                document.querySelectorAll('.accordion-icon').forEach(i => i.classList.remove('open'));
+
+                // Toggle current
+                if (!isOpen) {
+                    content.style.display = 'block';
+                    icon.classList.add('open');
+                }
+            });
+        });
+    </script>
+     <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+     <script src="https://files.bpcontent.cloud/2025/11/09/10/20251109100450-U4KENJYU.js" defer></script>
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/11/09/10/20251109100450-U4KENJYU.js" defer></script>
+    <script src="resource.js"></script>
+    <script type="module"   src="dd.js"></script>
+</body>
+</html>

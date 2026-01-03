@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment - PersonaPath</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assesment.css">
+</head>
+<body>
+    <div class="assessment-container">
+        <div class="assessment-main-content">
+            <!-- This is the welcome screen -->
+            <div id="welcome-screen">
+                <div class="assessment-header">
+                    <h1>Welcome to PersonaPath</h1>
+                    <div class="assessment-stats">
+                        <div class="stat-item">
+                            <div class="rating">4.5 ★★★★★</div>
+                            <span>1806 RATINGS</span>
+                        </div>
+                        <div class="stat-item">
+                            <div class="main-stat">10 minutes</div>
+                            <span>CAREER TEST</span>
+                        </div>
+                        <div class="stat-item">
+                            <div class="main-stat">Unlimited</div>
+                            <span>POSSIBILITIES</span>
+                        </div>
+                    </div>
+                    <!-- New Age Input Field -->
+                    <div class="age-input-group">
+                        <input type="number" id="ageInput" placeholder="Enter Your Age (15-50)" min="15" max="50">
+                        <button class="start-button" id="startAssessment">Start Assessment</button>
+                    </div>
+                </div>
+                <div class="assessment-slider-wrapper">
+                    <div class="swiper assessment-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="image/Assessmentbanner.png" alt="Slider Image 1"></div>
+                            <div class="swiper-slide"><img src="image/assessmentbanner2.png" alt="Slider Image 2"></div>
+                            <div class="swiper-slide"><img src="image/assessmentbanner3.png" alt="Slider Image 1"></div>
+                            <div class="swiper-slide"><img src="image/assessmentbanner6.png" alt="Slider Image 2"></div>
+                        </div>
+
+                    </div>
+                    <button class="slider-arrow prev">‹</button>
+                    <button class="slider-arrow next">›</button>
+                </div>
+            </div>
+
+            <!-- This section is for your questions -->
+            <div id="assessment-questions" style="display: none;">
+                <div id="questionContainer">
+                    <!-- Questions will be dynamically inserted here -->
+                </div>
+            </div>
+            
+            <!-- This section is for the final results -->
+            <div id="results" style="display: none;">
+                <h2>Your Results</h2>
+                <p>Congratulations! You have completed the assessment. Please sign up to view your detailed personality report and career matches.</p>
+                <button class="cta-button" onclick="window.location.href='signup.html'">Sign Up to See Results</button>
+            </div>
+        </div>
+
+        <aside class="assessment-sidebar">
+            <ul class="timeline">
+                <li class="timeline-item active" data-step="start">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content"><h4>START</h4></div>
+                </li>
+                <li class="timeline-item" data-step="personality">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content"><h4>YOUR PERSONALITY ARCHETYPE</h4><span>~ 2 MINS</span></div>
+                </li>
+                <li class="timeline-item" data-step="career">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content"><h4>YOUR CAREER MATCHES</h4><span>~ 2 MINS</span></div>
+                </li>
+                <li class="timeline-item" data-step="degree">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content"><h4>YOUR DEGREE MATCHES</h4><span>~ 1 MIN</span></div>
+                </li>
+                 <li class="timeline-item" data-step="results">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content"><h4>YOUR RESULTS</h4><span>~ 5 MINS</span>
+                        <p>Final career matches and insights</p>
+                        <p>Personality report</p>
+                        <p>Trait report</p>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+    </div>
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script type="module" src="assessment.js"></script>
+    <script type="module" src="firebase.js"></script>
+    
+</body>
+</html>

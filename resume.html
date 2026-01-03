@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PersonaPath - Resume Generator</title>
+    <link rel="stylesheet" href="dash.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">PersonaPath</div>
+            <button class="close-btn" id="close-sidebar"><i class="fas fa-times"></i></button>
+            <nav class="menu">
+                <div class="menu-item active">
+                    <i class="fas fa-clipboard-list"></i>
+                    <a href="dashboard.html" class="menu-link">
+                        <span>Test Results</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-book"></i>
+                    <a href="resource.html" class="menu-link">
+                        <span>Resources</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-file-alt"></i>
+                    <a href="resume.html" class="menu-link">
+                        <span>Resume Generator</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-road"></i>
+                    <a href="career.html" class="menu-link">
+                        <span>Career Roadmap</span>
+                    </a>
+                </div>
+            </nav>
+            <div class="menu-section-title">GENERAL</div>
+            <nav class="menu">
+                <div class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <a href="settings.html" class="menu-link">
+                        <span>Settings</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-question-circle"></i>
+                    <a href="help.html" class="menu-link">
+                        <span>Help</span>
+                    </a>
+                </div>
+                <div class="menu-item logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></div>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content" id="main-content">
+            <!-- HEADER -->
+            <header class="main-header">
+                <div class="header-left">
+                    <div class="hamburger-menu-mobile" id="hamburger-menu-mobile"><i class="fas fa-bars"></i></div>
+                    <div class="hamburger-menu-desktop" id="hamburger-menu-desktop"><i class="fas fa-bars"></i></div>
+                    <h1 class="greetres">Resume Generator</h1>
+                    <p class="subtitle">Create a professional resume tailored to your career goals.</p>
+                </div>
+                <div class="header-actions">
+                    <!-- PROFILE + DROPDOWN FIXED -->
+                    <div class="user-profile-wrapper">
+                        <div class="user-profile">
+                            <div class="user-avatar" id="user-avatar">TM</div>
+                            <div class="user-info">
+                                <div class="user-name" id="user-name">Loading...</div>
+                                <div class="user-status">Online</div>
+                            </div>
+                            <div class="dropdown">
+                                <i class="fas fa-chevron-down dropdown-icon"></i>
+                                <div class="dropdown-content">
+                                    <a href="#">Setting</a>
+                                    <a href="#">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="resume-generator">
+                <div class="progress-bar" id="progress-bar">
+                    <div class="step-item" data-step="1">
+                        <div class="step-circle">1</div>
+                        <span class="step-title">Basic Information</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item" data-step="2">
+                        <div class="step-circle">2</div>
+                        <span class="step-title">Education</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item" data-step="3">
+                        <div class="step-circle">3</div>
+                        <span class="step-title">Work Experience</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item" data-step="4">
+                        <div class="step-circle">4</div>
+                        <span class="step-title">Projects</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-item" data-step="5">
+                        <div class="step-circle">5</div>
+                        <span class="step-title">Skills</span>
+                    </div>
+                </div>
+                <div class="form-steps">
+                    <div class="step active" id="step-1">
+                        <h2>Basic Information</h2>
+                        <p>Provide your details for this section.</p>
+                        <form id="basic-info-form" class="form-grid">
+                            <div class="row">
+                                <div class="field-item">
+                                    <label>Full Name</label>
+                                    <input type="text" name="fullName" required>
+                                </div>
+                                <div class="field-item profile-pic-container">
+                                    <label>Profile Picture (.png, .jpg)</label>
+                                    <div class="upload-wrapper">
+                                        <label for="profilePicture" class="choose-btn">Choose File</label>
+                                        <input type="file" id="profilePicture" name="profilePicture" accept=".png, .jpg, .jpeg" onchange="updateProfilePicture(event)">
+                                        <span id="file-chosen">No file chosen</span>
+                                        <div class="profile-preview" id="profile-preview"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="field-item">
+                                    <label>Email</label>
+                                    <input type="email" name="email" required>
+                                </div>
+                                <div class="field-item">
+                                    <label>Phone Number</label>
+                                    <input type="tel" name="phone" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="field-item">
+                                    <label>LinkedIn Profile</label>
+                                    <input type="url" name="linkedin">
+                                </div>
+                                <div class="field-item">
+                                    <label>GitHub Profile</label>
+                                    <input type="url" name="github">
+                                </div>
+                            </div>
+                            <div class="field-item full-width">
+                                <label>Address</label>
+                                <input type="text" name="address">
+                            </div>
+                        </form>
+                        <h3>References</h3>
+                        <div id="references-container">
+                            <div class="section-box" id="default-ref">
+                                <div class="field-grid">
+                                    <div class="field-item">
+                                        <label>Reference Name</label>
+                                        <input type="text" data-id="default" onchange="updateField(this, 'references', 'name', 'default')">
+                                    </div>
+                                    <div class="field-item">
+                                        <label>Contact Info (Email/Phone)</label>
+                                        <input type="text" data-id="default" onchange="updateField(this, 'references', 'contact', 'default')">
+                                    </div>
+                                    <button class="remove-btn" onclick="removeField(this, 'references', 'default')">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-btn" id="add-ref">+ Add Reference</button>
+                    </div>
+                    <div class="step" id="step-2">
+                        <h2>Education</h2>
+                        <p>Provide your details for this section.</p>
+                        <div id="education-container">
+                            <div class="section-box" id="default-education">
+                                <div class="field-grid">
+                                    <div class="field-row">
+                                        <div class="field-item">
+                                            <label>Qualification</label>
+                                            <input type="text" data-id="default" onchange="updateField(this, 'education', 'qualification', 'default')">
+                                        </div>
+                                        <div class="field-item">
+                                            <label>Institute Name</label>
+                                            <input type="text" data-id="default" onchange="updateField(this, 'education', 'institute', 'default')">
+                                        </div>
+                                    </div>
+                                    <div class="field-row">
+                                        <div class="field-item">
+                                            <label>Start Date</label>
+                                            <input type="date" data-id="default" onchange="updateField(this, 'education', 'startDate', 'default')">
+                                        </div>
+                                        <div class="field-item">
+                                            <label>End Date</label>
+                                            <input type="date" data-id="default" onchange="updateField(this, 'education', 'endDate', 'default')">
+                                        </div>
+                                        <div class="field-item">
+                                            <label>CGPA / Grade</label>
+                                            <input type="text" data-id="default" onchange="updateField(this, 'education', 'grade', 'default')">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-btn" id="add-education">+ Add Education</button>
+                    </div>
+                    <div class="step" id="step-3">
+                        <h2>Work Experience</h2>
+                        <p>Provide your details for this section.</p>
+                        <div id="experience-container">
+                            <div class="section-box" id="default-experience">
+                                <div class="field-grid">
+                                    <div class="field-row">
+                                        <div class="field-item">
+                                            <label>Job Title / Designation</label>
+                                            <input type="text" data-id="default" onchange="updateField(this, 'experience', 'title', 'default')">
+                                        </div>
+                                        <div class="field-item">
+                                            <label>Company Name</label>
+                                            <input type="text" data-id="default" onchange="updateField(this, 'experience', 'company', 'default')">
+                                        </div>
+                                    </div>
+                                    <div class="field-row">
+                                        <div class="field-item">
+                                            <label>Start Date</label>
+                                            <input type="date" data-id="default" onchange="updateField(this, 'experience', 'startDate', 'default')">
+                                        </div>
+                                        <div class="field-item">
+                                            <label>End Date</label>
+                                            <input type="date" data-id="default" onchange="updateField(this, 'experience', 'endDate', 'default')">
+                                        </div>
+                                    </div>
+                                    <div class="field-item full-width">
+                                        <label>Description of Role</label>
+                                        <textarea data-id="default" onchange="updateField(this, 'experience', 'description', 'default')"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-btn" id="add-experience">+ Add Experience</button>
+                    </div>
+                    <div class="step" id="step-4">
+                        <h2>Projects</h2>
+                        <p>Provide your details for this section.</p>
+                        <div id="projects-container">
+                            <div class="section-box" id="default-project">
+                                <div class="field-grid">
+                                    <div class="field-row">
+                                        <div class="field-item">
+                                            <label>Project Title</label>
+                                            <input type="text" data-id="default" onchange="updateField(this, 'projects', 'title', 'default')">
+                                        </div>
+                                        <div class="field-item">
+                                            <label>Link (GitHub / Live)</label>
+                                            <input type="url" data-id="default" onchange="updateField(this, 'projects', 'link', 'default')">
+                                        </div>
+                                    </div>
+                                    <div class="field-item full-width">
+                                        <label>Description</label>
+                                        <textarea data-id="default" onchange="updateField(this, 'projects', 'description', 'default')"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-btn" id="add-project">+ Add Project</button>
+                    </div>
+                    <div class="step" id="step-5">
+                        <h2>Skills</h2>
+                        <p>Provide your details for this section.</p>
+                        <div id="skills-container">
+                            <div class="section-box" id="default-skill">
+                                <div class="field-grid">
+                                    <div class="field-item">
+                                        <label>Skill Name</label>
+                                        <input type="text" data-id="default" onchange="updateField(this, 'skills', 'name', 'default')">
+                                    </div>
+                                    <div class="field-item">
+                                        <label>Skill Level</label>
+                                        <select data-id="default" onchange="updateField(this, 'skills', 'level', 'default')">
+                                            <option value="Beginner">Beginner</option>
+                                            <option value="Intermediate" selected>Intermediate</option>
+                                            <option value="Advanced">Advanced</option>
+                                            <option value="Expert">Expert</option>
+                                        </select>
+                                    </div>
+                                    <button class="remove-btn" onclick="removeField(this, 'skills', 'default')">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-btn" id="add-skill">+ Add Skill</button>
+                    </div>
+                    <div class="form-controls">
+                        <button id="back-btn" class="back">Back</button>
+                        <button id="next-btn" class="next">Next</button>
+                    </div>
+                    <div class="step" id="step-preview" style="display: none;">
+                        <div class="preview-container">
+                            <div class="template-container">
+                                <div class="template-grid">
+                                    <div class="template-item active" data-template="modern-purple"><span>Modern Purple</span></div>
+                                    <div class="template-item" data-template="classic-black"><span>Classic Black</span></div>
+                                    <div class="template-item" data-template="creative-wave"><span>Creative Wave</span></div>
+                                    <div class="template-item" data-template="minimalist-tech"><span>Minimalist Tech</span></div>
+                                </div>
+                                <div class="preview-actions">
+                                    <div class="btn-row"><button class="btn btn-primary" id="download-resume">Download Resume (PDF)</button></div>
+                                    <div class="btn-row"><button class="btn btn-secondary" id="save-resume">Save Resume</button></div>
+                                    <div class="btn-row"><button class="btn btn-tertiary" id="edit-info">Edit Information</button></div>
+                                </div>
+                            </div>
+                            <div class="resume-preview-wrapper">
+                                <div class="resume-preview" id="resume-preview">
+                                    <div class="resume-paper" id="resumePreview">
+                                        <div class="resume-header">
+                                            <div class="resume-profile-pic" id="profile-pic"></div>
+                                            <div class="header-content">
+                                                <div class="resume-name">Totok Michael</div>
+                                                <hr class="header-line">
+                                                <div class="resume-contact-details">
+                                                    <div class="contact-line">
+                                                        <span class="contact-item"><i class="fas fa-phone"></i> +1 234 567 890</span>
+                                                        <span class="contact-item"><i class="fas fa-envelope"></i> michael@email.com</span>
+                                                        <span class="contact-item"><i class="fab fa-linkedin"></i> linkedin.com/in/totok-michael</span>
+                                                    </div>
+                                                    <div class="contact-line">
+                                                        <span class="contact-item"><i class="fas fa-map-marker-alt"></i> 123 Main St, Anytown, USA</span>
+                                                        <span class="contact-item"><i class="fab fa-github"></i> github.com/totok-michael</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="resume-main-content">
+                                            <!-- Content will be rendered by JS here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+                    <script src="https://files.bpcontent.cloud/2025/11/09/10/20251109100450-U4KENJYU.js" defer></script>
+                    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+                    <script  type="module" src="resume.js"></script>
+                    <script type="module" src="firebase.js"></script>
+                    </body>
+                    </html>
